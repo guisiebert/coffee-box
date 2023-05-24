@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar'
 
 import { useContext } from 'react'
 import { OrderContext } from '../../App'
+import { Link } from 'react-router-dom'
 
 
 
@@ -21,6 +22,7 @@ function Checkout() {
                 <div className='order'>
 
                     <h1>So you want {someInfo.coffees} coffees?</h1>
+                    <Link to={'/'}> Go to Home </Link>
                     <form action="">
                         <div>
                             <input type="text" name="cep" id="CEP"  placeholder='CEP'/>

@@ -3,7 +3,15 @@ import { ShoppingCart } from '@phosphor-icons/react'
 import heroPicture from '../../assets/hero coffee picture.png'
 import Navbar from '../../components/Navbar'
 
+import { useContext } from 'react'
+import { OrderContext } from '../../App'
+import { Link } from 'react-router-dom'
+
 function Home() {
+
+    const someInfo = useContext(OrderContext)
+    console.log(someInfo)
+
     return (
         <>
             <Navbar />
@@ -36,6 +44,13 @@ function Home() {
                 </div>
                 <div className='coffee-list'>
                     <h2>Nossos cafés</h2>
+                    <button
+                        onClick={someInfo.increaseCoffees}
+                    >
+                        Adicionar
+                    </button>
+                    <h1>So you want {someInfo.coffees} coffees?</h1>
+                   <Link to={'/checkout'}> Go to checkout </Link>
                 </div>
             </main>
             

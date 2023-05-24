@@ -3,17 +3,29 @@ import { Router } from "./Router"
 import './App.css'
 
 // Creating Context
-import { createContext } from "react"
+import { createContext, useState } from "react"
 
-export const OrderContext = createContext({})
+export const OrderContext = createContext()
 
 
 
 function App() {
 
+  const [coffees, setCoffees] = useState(1)
+
+  function increaseCoffees() {
+    setCoffees(prev => prev + 1)
+  }
+
   return (
     <BrowserRouter>
-      <OrderContext.Provider value={{coffees: 1}}>
+      <OrderContext.Provider 
+        value={{
+          coffees,
+          increaseCoffees
+        }}
+
+      >
         <Router />
       </OrderContext.Provider>
     </BrowserRouter>
