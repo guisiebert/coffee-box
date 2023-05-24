@@ -1,0 +1,16 @@
+/* MAIN CONTENT: */
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.hero {
+    display: flex;
+}
+
+
+h1 {
+    font-size: 3rem;
+}

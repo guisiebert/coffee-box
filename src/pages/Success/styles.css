@@ -1,0 +1,24 @@
+/* MAIN CONTENT: */
+
+
+
+main {
+    display: flex;
+}
+
+
+h1 {
+    font-size: 3rem;
+}
+
+
+.order-details {
+    padding: 3rem;
+    border: 1px solid red;
+}
+
+.order-detail-feature {
+    display: flex;
+    margin-top: 2rem;
+
+}
