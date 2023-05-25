@@ -1,5 +1,5 @@
 import './styles.css'
-import { ShoppingCart } from '@phosphor-icons/react'
+import { } from '@phosphor-icons/react'
 import Navbar from '../../components/Navbar'
 
 import { useContext } from 'react'
@@ -19,10 +19,11 @@ function Checkout() {
         <>
             <Navbar />
             <main>
-                <div className='order'>
-
-                    <h1>So you want {someInfo.coffees} coffees?</h1>
-                    <Link to={'/'}> Go to Home </Link>
+                <div className='address-form'>
+                    <div>
+                        <h3>Endereço de Entrega</h3>
+                        <p>Informe o endereço onde deseja receber seu pedido</p>
+                    </div>
                     <form action="">
                         <div>
                             <input type="text" name="cep" id="CEP"  placeholder='CEP'/>
@@ -41,6 +42,12 @@ function Checkout() {
                         </div>
 
                     </form>
+                </div>
+                <div className='payment-form'>
+                    <div>
+                        <h3>Pagamento</h3>
+                        <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                    </div>
                 </div>
 
                 <div className='cart'>

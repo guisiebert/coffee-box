@@ -3,8 +3,9 @@ import { ShoppingCart, Plus, Minus} from '@phosphor-icons/react'
 import latte from '../../assets/coffee-op-latte.png'
 import { useContext } from 'react'
 import { OrderContext } from '../../App'
+import { Link } from 'react-router-dom'
 
-export function CoffeeOption() {
+export function CoffeeOption({drink}) {
 
     const order = useContext(OrderContext)
 
@@ -12,11 +13,10 @@ export function CoffeeOption() {
         <div className='option-card'>
             <img src={latte} alt="" />
             <div className='tags'>
-                <span className='tag'>tradicional</span>
-                <span className='tag'>com leite</span>
+                {drink.tags.map(tag => <span className='tag'>{tag}</span>)}
             </div>
-            <h3>Latte</h3>
-            <p>Uma dose de café expresso com o dobro de leite e espuma cremosa</p>
+            <h3>{drink.name}</h3>
+            <p>{drink.description}</p>
             <div className='buy-section'>
                 <h3><span>R$</span>9,90</h3>
                 <div className='quantity'>
@@ -28,7 +28,11 @@ export function CoffeeOption() {
                         <Plus/>
                     </button>
                 </div>
-                <button><ShoppingCart /></button>
+                <div className='cart-button'>
+                    <Link to={'/checkout'}>
+                        <ShoppingCart className='cart-button-icon'  />
+                    </Link>
+                </div>
 
             </div>
         </div>

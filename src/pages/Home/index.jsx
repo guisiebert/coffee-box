@@ -1,12 +1,13 @@
 import './styles.css'
-import { ShoppingCart } from '@phosphor-icons/react'
-import heroPicture from '../../assets/hero coffee picture.png'
+
 import Navbar from '../../components/Navbar'
+import { HomeHero } from '../../components/HomeHero'
 
 import { useContext } from 'react'
 import { OrderContext } from '../../App'
-import { Link } from 'react-router-dom'
 import { CoffeeOption } from '../../components/CoffeeOption'
+
+import { menuItems } from '../../contexts/MenuContext'
 
 function Home() {
 
@@ -17,58 +18,15 @@ function Home() {
         <>
             <Navbar />
             <main>
-                <div className='hero'>
-                    <div>
-                        <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-                        <p>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
-                        <div className='features'>
-                            <div>
-                                <ShoppingCart />
-                                <span>Compra simples e segura</span>
-                            </div>
-                            <div>
-                                <ShoppingCart />
-                                <span>Entrega rápida e rastreada</span>
-                            </div>
-                            <div>
-                                <ShoppingCart />
-                                <span>Embalagem mantém o café intacto</span>
-                            </div>
-                            <div>
-                                <ShoppingCart />
-                                <span>O café chega fresquinho até você</span>
-                            </div>
-                        </div>
-                    </div>
-                    <img src={heroPicture} alt="" />
-
-                </div>
-
-
+                <HomeHero />
                 <h2>Nossos cafés</h2>
                 <div className='coffee-list'>
-
-                    <CoffeeOption />
-                    <CoffeeOption />
-                    <CoffeeOption />
-                    <CoffeeOption />
-                    <CoffeeOption />
-                    <CoffeeOption />
-                    <CoffeeOption />
-                    <CoffeeOption />
+                    {menuItems.map(drink => <CoffeeOption
+                        drink={drink}
+                    />)}
                 </div>
 
 
-                <div className='context-tester'>
-                    <h2>Nossos cafés</h2>
-                    <button
-                        onClick={someInfo.increaseCoffees}
-                    >
-                        Adicionar
-                    </button>
-                    <h1>So you want {someInfo.coffees} coffees?</h1>
-                   <Link to={'/checkout'}> Go to checkout </Link>
-                </div>
             </main>
             
         </>
