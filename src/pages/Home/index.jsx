@@ -6,6 +6,7 @@ import Navbar from '../../components/Navbar'
 import { useContext } from 'react'
 import { OrderContext } from '../../App'
 import { Link } from 'react-router-dom'
+import { CoffeeOption } from '../../components/CoffeeOption'
 
 function Home() {
 
@@ -42,7 +43,23 @@ function Home() {
                     <img src={heroPicture} alt="" />
 
                 </div>
+
+
+                <h2>Nossos cafés</h2>
                 <div className='coffee-list'>
+
+                    <CoffeeOption />
+                    <CoffeeOption />
+                    <CoffeeOption />
+                    <CoffeeOption />
+                    <CoffeeOption />
+                    <CoffeeOption />
+                    <CoffeeOption />
+                    <CoffeeOption />
+                </div>
+
+
+                <div className='context-tester'>
                     <h2>Nossos cafés</h2>
                     <button
                         onClick={someInfo.increaseCoffees}

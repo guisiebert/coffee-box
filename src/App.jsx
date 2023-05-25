@@ -17,12 +17,17 @@ function App() {
     setCoffees(prev => prev + 1)
   }
 
+  function decreaseCoffees() {
+    setCoffees(prev => prev - 1)
+  }
+
   return (
     <BrowserRouter>
       <OrderContext.Provider 
         value={{
           coffees,
-          increaseCoffees
+          increaseCoffees,
+          decreaseCoffees
         }}
 
       >
