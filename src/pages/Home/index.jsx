@@ -21,6 +21,7 @@ function Home() {
                 <div className='coffee-list'>
                     {menuItems.map(drink => <CoffeeOption
                         drink={drink}
+                        key={drink.id}
                     />)}
                 </div>
 

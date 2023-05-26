@@ -17,7 +17,7 @@ export function CoffeeOption({drink}) {
         <div className='option-card'>
             <img src={latte} alt="" />
             <div className='tags'>
-                {drink.tags.map(tag => <span className='tag'>{tag}</span>)}
+                {drink.tags.map(tag => <span className='tag' key={tag}>{tag}</span>)}
             </div>
             <h3>{drink.name}</h3>
             <p>{drink.description}</p>

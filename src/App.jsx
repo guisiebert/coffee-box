@@ -11,16 +11,35 @@ export const OrderContext = createContext()
 
 
 function App() {
-
   const [order, setOrder] = useState([])
-
+  console.log(order)
+  
   function addItemToOrder(drink) {
-    const newOrder = produce(order, draft => {
-      draft.push(drink)
-    })
-    setOrder(newOrder)
+    const isDrinkAlreadyOnList = order.find(order => order.id == drink.id)
 
-    console.log('fui apertado')
+    if (isDrinkAlreadyOnList) {
+
+      const newOrder = produce(order, draft => {
+        const orderedDrink = draft.find(order => order.id == drink.id)
+        orderedDrink.quantity += 1
+      })
+      setOrder(newOrder)
+
+      console.log('esta bebida JÁ estava na lista') 
+    } else {
+
+      const newOrder = produce(order, draft => {draft.push(
+        {
+          ...drink,
+          quantity: 1
+        }
+      )})
+
+      setOrder(newOrder)
+      
+      console.log('essa bebida NÃO estava na lista')
+    }
+      
 
   }
 
