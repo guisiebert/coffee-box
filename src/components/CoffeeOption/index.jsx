@@ -10,11 +10,7 @@ export function CoffeeOption({drink}) {
     const order = useContext(OrderContext)
 
     function addThisItem() {
-        order.addItem({
-            name: drink.name,
-            price: "R$9,90",
-            quantity: 1
-        })
+        order.addItemToOrder(drink)
     }
 
     return (

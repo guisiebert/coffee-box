@@ -14,7 +14,13 @@ function Checkout() {
 
     const someInfo = useContext(OrderContext)
     
-    const {currentOrder, newCurrentOrder} = useContext(OrderContext)
+    const {order, newOrder} = useContext(OrderContext)
+    
+    const orderList = order.map(item => {return (
+        <OrderItem 
+            item={item}
+        />
+    )}) 
 
     
 
@@ -64,11 +70,9 @@ function Checkout() {
                 <div className='right-panel'>
                     <h3>Cafés selecionados</h3>
                     <div className='order-block block'>
-                        {newCurrentOrder.map(item => {return (
-                            <OrderItem 
-                                item={item}
-                            />
-                        )})}
+                        {order.length > 0 
+                        ? orderList
+                        : <p>Ainda não há pedidos aqui</p> }
                          
                         <div className='summary'>
                             <table>
