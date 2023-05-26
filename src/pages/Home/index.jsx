@@ -11,8 +11,6 @@ import { menuItems } from '../../contexts/MenuContext'
 
 function Home() {
 
-    const someInfo = useContext(OrderContext)
-    console.log(someInfo)
 
     return (
         <>

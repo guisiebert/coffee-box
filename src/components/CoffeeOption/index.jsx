@@ -9,6 +9,14 @@ export function CoffeeOption({drink}) {
 
     const order = useContext(OrderContext)
 
+    function addThisItem() {
+        order.addItem({
+            name: drink.name,
+            price: "R$9,90",
+            quantity: 1
+        })
+    }
+
     return (
         <div className='option-card'>
             <img src={latte} alt="" />
@@ -24,7 +32,7 @@ export function CoffeeOption({drink}) {
                         <Minus/>
                     </button>
                     {order.coffees}
-                    <button className='qty-btns' onClick={order.increaseCoffees}>
+                    <button className='qty-btns' onClick={addThisItem}>
                         <Plus/>
                     </button>
                 </div>

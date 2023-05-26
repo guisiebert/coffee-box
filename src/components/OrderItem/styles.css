@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 2rem 0rem;
+    border-bottom: 1px solid var(--base-button);
+
+}
+
+
+img {
+    width: 4rem;
+}
