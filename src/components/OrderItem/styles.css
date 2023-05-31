@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 1.25rem;
 
     padding: 2rem 0rem;
     border-bottom: 1px solid var(--base-button);
@@ -12,4 +12,55 @@
 
 img {
     width: 4rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+strong {
+    font-size: 1rem;
+    margin-left: auto;
+}
+
+.center-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.qty-rmv {
+    display: flex;
+    gap: 0.5rem;
+
+    height: 2rem;
+}
+
+.qty-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 4px;
+
+    background: #E6E5E5;
+    border-radius: 6px;
+
+    font-size: 1rem;
+}
+
+.rmv-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 4px;
+
+    background: #E6E5E5;
+    border-radius: 6px;
+
+    font-size: 0.75rem;
+
+
 }

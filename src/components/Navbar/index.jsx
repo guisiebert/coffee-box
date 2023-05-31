@@ -13,9 +13,11 @@ function Navbar() {
                 <div className='location-action'>
                     <MapPin weight="fill" size={22} /> <span>Porto Alegre, RS</span>
                 </div>
-                <div className='cart-action'>
-                    <ShoppingCart weight="fill" size={22}/>
-                </div>
+                <Link to={'/checkout'}>
+                    <div className='cart-action'>
+                        <ShoppingCart weight="fill" size={22}/>
+                    </div>
+                </Link>
             </div>
         </nav>
     )

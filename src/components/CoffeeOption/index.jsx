@@ -13,6 +13,18 @@ export function CoffeeOption({drink}) {
         order.addItemToOrder(drink)
     }
 
+    function checkQuantityOfThisItemInOrder() {
+        const thisItemInOrder = order.order.find(item => item.id == drink.id)
+        let amountOfThisItemInOrder = 0
+        if (thisItemInOrder) {
+            amountOfThisItemInOrder = thisItemInOrder.quantity
+        }
+        
+        return amountOfThisItemInOrder
+    }
+
+    const qty = checkQuantityOfThisItemInOrder()
+
     return (
         <div className='option-card'>
             <img src={latte} alt="" />
@@ -27,7 +39,7 @@ export function CoffeeOption({drink}) {
                     <button className='qty-btns' onClick={order.decreaseCoffees}>
                         <Minus/>
                     </button>
-                    {order.coffees}
+                    {qty}
                     <button className='qty-btns' onClick={addThisItem}>
                         <Plus/>
                     </button>

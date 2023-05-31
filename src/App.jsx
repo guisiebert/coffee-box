@@ -25,7 +25,7 @@ function App() {
       })
       setOrder(newOrder)
 
-      console.log('esta bebida JÁ estava na lista') 
+      // console.log('esta bebida JÁ estava na lista') 
     } else {
 
       const newOrder = produce(order, draft => {draft.push(
@@ -37,7 +37,7 @@ function App() {
 
       setOrder(newOrder)
       
-      console.log('essa bebida NÃO estava na lista')
+      // console.log('essa bebida NÃO estava na lista')
     }
       
 
