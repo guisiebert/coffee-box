@@ -1,9 +1,9 @@
 import './styles.css'
-import { Bank, CreditCard, Money } from '@phosphor-icons/react'
+import { Bank, CreditCard, Money, MapPinLine } from '@phosphor-icons/react'
 import Navbar from '../../components/Navbar'
 
 import { useContext } from 'react'
-import { OrderContext } from '../../App'
+import { OrderContext } from '../../contexts/OrderContext'
 import { Link } from 'react-router-dom'
 import { OrderItem } from '../../components/OrderItem'
 
@@ -31,9 +31,12 @@ function Checkout() {
                 <div className='left-panel'>
                     <h3>Complete seu pedido</h3>
                     <div className='address-form-block block'>
-                        <div>
-                            <p className='block-title'>Endereço de Entrega</p>
-                            <p className='block-description'>Informe o endereço onde deseja receber seu pedido</p>
+                        <div className='title-desc-icon-div'>
+                            <MapPinLine size={22} color='#8047F8' />
+                            <div>
+                                <p className='block-title'>Endereço de Entrega</p>
+                                <p className='block-description'>Informe o endereço onde deseja receber seu pedido</p>
+                            </div>
                         </div>
                         <form action="">
                             <div className='input-line'>
@@ -70,8 +73,13 @@ function Checkout() {
                     </div>
                     <div className='payment-method-block block'>
                         <div>
-                            <p className='block-title'>Pagamento</p>
-                            <p className='block-description'>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                            <div className='title-desc-icon-div'>
+                                <MapPinLine size={22} color='#8047F8' />
+                                <div>
+                                    <p className='block-title'>Pagamento</p>
+                                    <p className='block-description'>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                                </div>
+                            </div>
                             <div className='payment-methods'>
                                 <div className='payment-option'>
                                     <CreditCard size={16} color='#8047F8'/>

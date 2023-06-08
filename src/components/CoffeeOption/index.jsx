@@ -1,8 +1,8 @@
 import './styles.css'
-import { ShoppingCart, Plus, Minus} from '@phosphor-icons/react'
+import { ShoppingCart, Plus, Minus, ShoppingCartSimple} from '@phosphor-icons/react'
 import latte from '../../assets/coffee-op-latte.png'
 import { useContext } from 'react'
-import { OrderContext } from '../../App'
+import { OrderContext } from '../../contexts/OrderContext'
 import { Link } from 'react-router-dom'
 
 export function CoffeeOption({drink}) {
@@ -34,21 +34,31 @@ export function CoffeeOption({drink}) {
             <h3>{drink.name}</h3>
             <p>{drink.description}</p>
             <div className='buy-section'>
-                <h3><span>R$</span>9,90</h3>
-                <div className='quantity'>
-                    <button className='qty-btns' onClick={order.decreaseCoffees}>
-                        <Minus/>
-                    </button>
+                <p>R$ <span className='price'>9,90</span></p>
+                <div className='qty-box'>
+                    {/* <Link className='qty-btns' onClick={order.decreaseCoffees}> */}
+                        <Minus 
+                            size={14} 
+                            weight="bold"  
+                            color='#8047F8'  
+                            className='qty-btns' 
+                            onClick={order.decreaseCoffees} 
+                        />
+                    {/* </Link> */}
                     {qty}
-                    <button className='qty-btns' onClick={addThisItem}>
-                        <Plus/>
-                    </button>
+                    {/* <Link className='qty-btns' onClick={addThisItem}> */}
+                        <Plus 
+                            size={14} 
+                            weight="bold"  
+                            color='#8047F8'  
+                            className='qty-btns' 
+                            onClick={addThisItem} 
+                        />
+                    {/* </Link> */}
                 </div>
-                <div className='cart-button'>
-                    <Link to={'/checkout'}>
-                        <ShoppingCart className='cart-button-icon'  />
-                    </Link>
-                </div>
+                <Link to={'/checkout'} className='cart-button'>
+                    <ShoppingCartSimple weight="fill" color="white" size={22}  />
+                </Link> 
 
             </div>
         </div>

@@ -25,7 +25,7 @@ export function OrderItem({item}) {
                 </div>
 
             </div>
-            <strong>R$ {subtotal}0</strong>
+            <strong>R$ {subtotal.toFixed(2)}</strong>
         </div>
     )
 }
