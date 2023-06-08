@@ -17,7 +17,10 @@ export function BlankOrderBlock() {
 
     return(
         <div className='blank-order-block block'>
-            <p>Seu carrinho está vazio</p> 
+            <p>Seu carrinho está vazio.</p> 
+            <Link className="back-home" to={'/'}>
+                <p className="back-home">Que tal escolher uma bebida?</p>
+            </Link>
         </div>
     )
 }

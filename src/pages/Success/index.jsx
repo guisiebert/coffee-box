@@ -2,8 +2,15 @@ import './styles.css'
 import { MapPin, Pinwheel, ShoppingCart } from '@phosphor-icons/react'
 import cover from '../../assets/confirmation-cover.svg'
 import Navbar from '../../components/Navbar'
+import { OrderContext } from '../../contexts/OrderContext'
+import { useContext } from 'react'
 
 function Success() {
+
+    const {formData} = useContext(OrderContext)
+
+
+
     return (
         <>
             <Navbar />
@@ -15,8 +22,8 @@ function Success() {
                         <div className='order-detail-feature'>
                             <MapPin />
                             <div>
-                                <p>Entrega em Rua João Daniel Martinelli, 102 </p>
-                                <p>Farrapos - Porto Alegre, RS</p>
+                                <p>Entrega em {formData.rua}, {formData.numero} </p>
+                                <p>{formData.bairro} - {formData.cidade}, {formData.uf}</p>
                             </div>
                         </div>
                         <div className='order-detail-feature'>

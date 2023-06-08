@@ -6,14 +6,18 @@ import { OrderContext } from '../../contexts/OrderContext'
 
 export function OrderItem({item}) {
 
-    const {addItemToOrder, decreaseQty} = useContext(OrderContext)
+    const {addItemToOrder, decreaseQty, removeItem} = useContext(OrderContext)
+    
+    function handleIncrease() {
+        addItemToOrder(item)
+    }
 
     function handleDecrease() {
         decreaseQty(item.id)
     }
 
-    function handleIncrease() {
-        addItemToOrder(item)
+    function handleDelete() {
+        removeItem(item.id)
     }
 
     const subtotal = item.price * item.quantity
@@ -30,7 +34,7 @@ export function OrderItem({item}) {
                         <Plus onClick={handleIncrease}/>
 
                     </div>
-                    <div className='rmv-btn'>
+                    <div className='rmv-btn' onClick={handleDelete}>
                         <Trash size={16} />
                         REMOVER
                     </div>

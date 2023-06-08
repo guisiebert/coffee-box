@@ -52,6 +52,15 @@ export function OrderProvider({ children }) {
         setOrder(newOrder)
     }
 
+    function removeItem(drinkId) {
+        const newOrder = produce(order, draft => {
+            const orderToDelete = draft.findIndex( drink => drink.id == drinkId)
+            draft.splice(orderToDelete, 1)
+        })
+
+        setOrder(newOrder)
+    }
+
     function getTotal() {
         let total = 0
         if (order.length > 0) {
@@ -63,6 +72,29 @@ export function OrderProvider({ children }) {
         return total
     }
 
+    const [formData, setFormData] = useState({
+        cep: "",
+        rua: "",
+        numero: "",
+        complemento: "",
+        bairro: "",
+        cidade: "",
+        uf: "",
+        metodo: ""
+    })
+
+    console.log(formData)
+
+    function changeFormData(event) {
+        const {name, value} = event.target
+
+        const newFormData = produce(formData, draft => {
+            draft[name] = value
+        })
+
+        setFormData(newFormData)
+    }
+
 
     return (
         <OrderContext.Provider
@@ -70,7 +102,10 @@ export function OrderProvider({ children }) {
                 order,
                 addItemToOrder,
                 getTotal,
-                decreaseQty
+                decreaseQty,
+                removeItem,
+                formData,
+                changeFormData
             }}
         >
             {children}
