@@ -1,8 +1,20 @@
 import './styles.css'
 import latte from '../../assets/coffee-op-latte.png'
 import { Trash, Minus, Plus } from '@phosphor-icons/react'
+import { useContext } from 'react'
+import { OrderContext } from '../../contexts/OrderContext'
 
 export function OrderItem({item}) {
+
+    const {addItemToOrder, decreaseQty} = useContext(OrderContext)
+
+    function handleDecrease() {
+        decreaseQty(item.id)
+    }
+
+    function handleIncrease() {
+        addItemToOrder(item)
+    }
 
     const subtotal = item.price * item.quantity
 
@@ -13,9 +25,9 @@ export function OrderItem({item}) {
                 <p>{item.name}</p>
                 <div className='qty-rmv'>
                     <div className='qty-block'>
-                        <Minus/>
+                        <Minus onClick={handleDecrease}/>
                         <p>{item.quantity}</p>
-                        <Plus/>
+                        <Plus onClick={handleIncrease}/>
 
                     </div>
                     <div className='rmv-btn'>

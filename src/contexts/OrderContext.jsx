@@ -9,7 +9,6 @@ export const OrderContext = createContext()
 
 export function OrderProvider({ children }) {
     const [order, setOrder] = useState([])
-    const [coffees, setCoffees] = useState(1)
 
     
     function addItemToOrder(drink) {
@@ -39,13 +38,39 @@ export function OrderProvider({ children }) {
         }
     }
 
+    function decreaseQty(drinkId) {
+        const newOrder = produce(order, draft => {
+            const drinkToDecrease = order.findIndex( drink => drink.id == drinkId)
+            if (draft[drinkToDecrease].quantity > 0) {
+                draft[drinkToDecrease].quantity = draft[drinkToDecrease].quantity - 1
+            }
+            if (draft[drinkToDecrease].quantity <= 0) {
+                draft.splice(drinkToDecrease, 1)
+            }
+        })
+    
+        setOrder(newOrder)
+    }
+
+    function getTotal() {
+        let total = 0
+        if (order.length > 0) {
+            for (let item in order) {
+                // console.log(order[item].name)
+                total += order[item].price * order[item].quantity
+            }
+        }
+        return total
+    }
+
 
     return (
         <OrderContext.Provider
             value={{
                 order,
                 addItemToOrder,
-                coffees
+                getTotal,
+                decreaseQty
             }}
         >
             {children}

@@ -13,6 +13,10 @@ export function CoffeeOption({drink}) {
         order.addItemToOrder(drink)
     }
 
+    function decreaseThisItem() {
+        order.decreaseQty(drink.id)
+    }
+
     function checkQuantityOfThisItemInOrder() {
         const thisItemInOrder = order.order.find(item => item.id == drink.id)
         let amountOfThisItemInOrder = 0
@@ -36,17 +40,14 @@ export function CoffeeOption({drink}) {
             <div className='buy-section'>
                 <p>R$ <span className='price'>9,90</span></p>
                 <div className='qty-box'>
-                    {/* <Link className='qty-btns' onClick={order.decreaseCoffees}> */}
                         <Minus 
                             size={14} 
                             weight="bold"  
                             color='#8047F8'  
                             className='qty-btns' 
-                            onClick={order.decreaseCoffees} 
+                            onClick={decreaseThisItem} 
                         />
-                    {/* </Link> */}
                     {qty}
-                    {/* <Link className='qty-btns' onClick={addThisItem}> */}
                         <Plus 
                             size={14} 
                             weight="bold"  
@@ -54,7 +55,6 @@ export function CoffeeOption({drink}) {
                             className='qty-btns' 
                             onClick={addThisItem} 
                         />
-                    {/* </Link> */}
                 </div>
                 <Link to={'/checkout'} className='cart-button'>
                     <ShoppingCartSimple weight="fill" color="white" size={22}  />
