@@ -1,12 +1,12 @@
 import './styles.css'
 import { ShoppingCart, Plus, Minus, ShoppingCartSimple} from '@phosphor-icons/react'
-import latte from '../../assets/coffee-op-latte.png'
+// import latte from '../../assets/coffee-op-latte.png'
 import { useContext } from 'react'
 import { OrderContext } from '../../contexts/OrderContext'
 import { Link } from 'react-router-dom'
 
 export function CoffeeOption({drink}) {
-
+    
     const order = useContext(OrderContext)
 
     function addThisItem() {
@@ -31,7 +31,9 @@ export function CoffeeOption({drink}) {
 
     return (
         <div className='option-card'>
-            <img src={latte} alt="" />
+
+            <img src={drink.image} alt="" /> 
+
             <div className='tags'>
                 {drink.tags.map(tag => <span className='tag' key={tag}>{tag}</span>)}
             </div>
