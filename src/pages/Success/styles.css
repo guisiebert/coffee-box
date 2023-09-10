@@ -8,17 +8,45 @@ main {
 
 
 h1 {
-    font-size: 3rem;
+    font-size: 2rem;
+    color: var(--yellow);
+    line-height: 130%;
 }
 
+.success-description {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 130%;
+    margin-top: 0.25rem;
+}
+
+.order-hero {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+}
 
 .order-details {
-    padding: 3rem;
-    border: 1px solid red;
+    padding: 2.5rem;
+    border: 1px solid #8047F8;
+    border-radius:  0rem 3rem 0rem 3rem;
+    min-width: 25rem;
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
 }
+
 
 .order-detail-feature {
     display: flex;
-    margin-top: 2rem;
+    align-items: center;
+    gap: 0.75rem;
 
+}
+
+img {
+    width: 30rem;
 }

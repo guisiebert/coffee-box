@@ -15,34 +15,34 @@ function Success() {
         <>
             <Navbar />
             <main>
-                <div>
-                    <h1>Uhu! Pedido confirmado</h1>
-                    <p>Agora é só aguardar que logo o café chegará até você</p>
+                <h1>Uhu! Pedido confirmado</h1>
+                <p className='success-description'>Agora é só aguardar que logo o café chegará até você</p>
+                <div className='order-hero'>
                     <div className='order-details'>
                         <div className='order-detail-feature'>
-                            <MapPin />
+                            <MapPin size={32}  fill={'blue'} weight='fill'/>
                             <div>
-                                <p>Entrega em {formData.rua}, {formData.numero} </p>
+                                <p>Entrega em <strong>{formData.rua}, {formData.numero}</strong> </p>
                                 <p>{formData.bairro} - {formData.cidade}, {formData.uf}</p>
                             </div>
                         </div>
                         <div className='order-detail-feature'>
-                            <MapPin />
+                            <MapPin size={32} color={'white'} fill={'blue'} weight='fill' />
                             <div>
                                 <p>Previsão de entrega </p>
-                                <p>20 min - 30 min </p>
+                                <strong>20 min - 30 min </strong>
                             </div>
                         </div>
                         <div className='order-detail-feature'>
-                            <MapPin />
+                            <MapPin size={32}  fill={'blue'} weight='fill'/>
                             <div>
                                 <p>Pagamento na entrega</p>
-                                <p>Cartão de Crédito</p>
+                                <strong>Cartão de Crédito</strong>
                             </div>
                         </div>
                     </div>
+                    <img src={cover} alt="" />
                 </div>
-                <img src={cover} alt="" />
             </main>
         </>
     )
